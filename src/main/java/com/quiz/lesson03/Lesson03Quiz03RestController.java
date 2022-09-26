@@ -12,12 +12,12 @@ public class Lesson03Quiz03RestController {
 
 	@Autowired
 	private RealEstateBO realEstateBO;
-	// 요청 URL : http://localhost/lesson03/quiz03?id=8&...
-	@RequestMapping("/lesson03/quiz03")
+	// 요청 URL : http://localhost:8080/lesson03/quiz03/1?id=8&type=전세&price=70000
+	@RequestMapping("/lesson03/quiz03/1")
 	public String quiz03(
 			@RequestParam("id") int id,
 			@RequestParam("type") String type,
-			@RequestParam("price") int price) {
+			@RequestParam(value="price") int price) {
 		int row = realEstateBO.updateRealEstateById(id, type, price);
 		return "수정 성공:" + row;
 	}
