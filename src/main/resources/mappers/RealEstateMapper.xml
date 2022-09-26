@@ -125,10 +125,18 @@
  		UPDATE `real_estate`
  		SET
  			`type` = #{type}
- 			, `price = #{price}
+ 			, `price` = #{price}
  			, `updatedAt` = NOW()
  		WHERE
  			`id` = #{id}
  	</update>
+ 	
+ 	<delete id="deleteRealEstateById" parameterType="int">
+ 		DELETE
+ 		FROM
+ 			`real_estate`
+ 		WHERE
+ 			`id` = #{id}
+ 	</delete>
  
  </mapper>
