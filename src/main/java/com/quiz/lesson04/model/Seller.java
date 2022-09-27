@@ -8,6 +8,8 @@ public class Seller {
 	private String profileImageUrl;
 	private double temperature;
 	private Date createdAt;
+	private Date updatedAt;
+	
 	public int getId() {
 		return id;
 	}
@@ -44,7 +46,4 @@ public class Seller {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	private Date updatedAt;
-	
-	
 }

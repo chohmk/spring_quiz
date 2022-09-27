@@ -4,14 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.quiz.lesson04.dao.SellerDAO;
+import com.quiz.lesson04.model.Seller;
 
 @Service
 public class SellerBO {
 	
 	@Autowired
 	private SellerDAO sellerDAO;
+	public void addSeller(String nickname, String profileImageUrl, double temperature) {
+		sellerDAO.insertSeller(nickname, profileImageUrl, temperature);
+	}
 	
-	public void addSeller(String nickName, String profileImageUrl, double temperature) {
-		sellerDAO.insertSeller(nickName, profileImageUrl, temperature);
+	public Seller getLastestSeller() {
+		return sellerDAO.selectLastestSeller();
+	}
+	
+	// 아이디가 필수로 들어오는 메소드
+	public Seller getSellerById(int id) {
+		return sellerDAO.selectSellerById(id);
 	}
 }

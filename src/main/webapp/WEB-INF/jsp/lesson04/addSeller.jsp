@@ -17,21 +17,21 @@
 		
 		<form method="post" action="/lesson04/quiz01/add_seller">
 			<div class="form-group">
-				<label for="nickName"><b>판매자</b></label>
-				<input type="text" id="nickName" name="nickName" class="form-control col-3">
+				<label for="nickname"><b>판매자</b></label>
+				<input type="text" id="nickname" name="nickname" class="form-control col-3">
 			</div>
 			
 			<div class="form-group">
-				<label for="profileImageUrl"><b>프로필사진 URL</b></label>
+				<label for="profileImageUrl"><b>프로필 사진 URL</b></label>
 				<input type="text" id="profileImageUrl" name="profileImageUrl" class="form-control col-6">
 			</div>
 			
 			<div class="form-group">
-				<label for="temperature"><b>온도</b></label>
+				<label for="temperature"><b>매너 온도</b></label>
 				<input type="text" id="temperature" name="temperature" class="form-control col-3">
 			</div>
 			
-			<input type="submit" class="btn btn-info" value="추가">
+			<button type="submit" class="btn btn-primary">추가</button>
 		
 		</form>
 	</div>
