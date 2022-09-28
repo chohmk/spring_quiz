@@ -37,10 +37,11 @@
 	</c:if>
 	
 	<h1>5. core if</h1>
-	<c:if test="${(number1 * number2) > 100 }">
-		<c:out value="<script>alert(너무 큰 수 입니다.)</script>" excapeXml="false"/>
-		
+	<c:if test="${number1 * number2 > 100}">
+		<c:out value="<script>alert('너무 큰 수 입니다.')</script>" escapeXml="false" />
 	</c:if>
+	
+
 	
 	
 </body>
