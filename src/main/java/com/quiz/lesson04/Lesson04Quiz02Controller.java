@@ -38,6 +38,6 @@ public class Lesson04Quiz02Controller {
 		model.addAttribute("subject", "공인중개사 정보");
 		
 		// return jsp 경로
-		return "lesson04/quiz02/afterRealtor";
+		return "lesson04/afterAddRealtor";
 	}
 }
