@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+#Wrap {width:1200px;}
+header {height: 150px;}
+nav {height:150px;}
+h2 {
+	font-size: 60px; 
+	text-align: left;
+	padding-top: 20px;
+}
+h1{font-size: 70px; color: #666;}
+
+section{height:750px;}
+footer{height: 150px;}
+footer div {font-size: 30px;}
+.text {color: gray; font-weight: bold; font-size: 25px;}
