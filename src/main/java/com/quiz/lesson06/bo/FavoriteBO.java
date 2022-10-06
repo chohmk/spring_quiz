@@ -10,14 +10,24 @@ import com.quiz.lesson06.model.Favorite;
 
 @Service
 public class FavoriteBO {
+
 	@Autowired
 	private FavoriteDAO favoriteDAO;
-	
-	public void addFavorite(String title, String address) {
-		favoriteDAO.insertFavorite(title, address);
+
+	public void addFavorite(String title, String url) {
+		favoriteDAO.insertFavorite(title, url);
+	}
+
+	public List<Favorite> getFavoriteList() {
+		return favoriteDAO.selectFavoriteList();
 	}
 	
-	public List<Favorite> getFavorite(String title, String address){
-		return favoriteDAO.selectFavorite(title, address);
+	public Favorite getFavoriteByUrl(String url) {
+		List<Favorite> favoriteList = favoriteDAO.selectFavoriteByUrl(url);
+		if (favoriteList.isEmpty()) {
+			return null;	// 중복 아니면 null로 리턴
+		}
+		
+		return favoriteList.get(0);	// 중복이면 첫번째 데이터를 리턴한다.
 	}
 }

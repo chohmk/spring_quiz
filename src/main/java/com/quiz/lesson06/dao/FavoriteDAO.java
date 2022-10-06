@@ -12,9 +12,9 @@ public interface FavoriteDAO {
 
 	public void insertFavorite(
 			@Param("title") String title, 
-			@Param("address") String address);
+			@Param("url") String url);
+
+	public List<Favorite> selectFavoriteList();
 	
-	public List<Favorite> selectFavorite(
-			@Param("title") String title, 
-			@Param("address") String address);
+	public List<Favorite> selectFavoriteByUrl(String url);
 }
