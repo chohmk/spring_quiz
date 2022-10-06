@@ -9,11 +9,11 @@ import com.quiz.lesson06.model.Favorite;
 
 @Repository
 public interface FavoriteDAO {
-
+	
 	public void insertFavorite(
 			@Param("title") String title, 
 			@Param("url") String url);
-
+	
 	public List<Favorite> selectFavoriteList();
 	
 	public List<Favorite> selectFavoriteByUrl(String url);

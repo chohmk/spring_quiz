@@ -16,7 +16,7 @@
 <body>
 	<div class="container">
 		<h1>즐겨찾기 목록</h1>
-
+		
 		<table class="table text-center">
 			<thead>
 				<tr>

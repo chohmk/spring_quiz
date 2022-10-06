@@ -49,9 +49,9 @@ public class FavoriteController {
 	
 	// AJAX요청
 	@ResponseBody
-	@PostMapping("/lesson06/is_duplication_url")
+	@PostMapping("/is_duplication_url")
 	public Map<String, Boolean> isDuplicationUrl(
-			@RequestParam("url") String url){
+			@RequestParam("url") String url) {
 		
 		Map<String, Boolean> result = new HashMap<>();
 		Favorite favorite = favoriteBO.getFavoriteByUrl(url);
@@ -60,8 +60,8 @@ public class FavoriteController {
 		} else {
 			result.put("isDuplication", true);
 		}
-	
-		return result;	//json String
+		
+		return result; // json string
 		
 	}
 }
