@@ -1,0 +1,9 @@
+@charset "UTF-8";
+#wrap {width:1200px;}
+header {height:100px;}
+header div {font-size: 60px;}
+
+nav {height:50px; background: orange;}
+h1 {height:70px;}
+
+section {height: 700px;}
