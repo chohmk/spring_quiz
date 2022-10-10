@@ -6,7 +6,7 @@ public class Booking {
 	private int id;
 	private String name;
 	private int headcount;
-	private int ingday;
+	private int day;
 	private Date date;
 	private String phoneNumber;
 	private String state;
@@ -30,11 +30,11 @@ public class Booking {
 	public void setHeadcount(int headcount) {
 		this.headcount = headcount;
 	}
-	public int getIngday() {
-		return ingday;
+	public int getday() {
+		return day;
 	}
-	public void setIngday(int ingday) {
-		this.ingday = ingday;
+	public void setday(int day) {
+		this.day = day;
 	}
 	public Date getDate() {
 		return date;

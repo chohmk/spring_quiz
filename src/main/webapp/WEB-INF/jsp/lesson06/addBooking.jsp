@@ -34,31 +34,69 @@
 	
 	<!-- section -->
 		<section>
-			<table>
+			<table class="table text-center">
 				<thead>
+				
 					<tr>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
+						<th>이름</th>
+						<th>예약날짜</th>
+						<th>숙박일수</th>
+						<th>숙박인원</th>
+						<th>전화번호</th>
+						<th>예약상태</th>
 					</tr>
+				
 				</thead>
 				<tbody>
+				<c:forEach items="${book}" var="booking">
 					<tr>
+						<td>${booking.name}</td>
 						<td>
+							
+						</td>
+						<td>${booking.day}</td>
+						<td>${booking.headcount}</td>
+						<td>${booking.phoneNumber}</td>
+						<td>${booking.state}</td>
 						<td>
-						<td>
-						<td>
-						<td>
-						<td>
-						<td>
+							<button type="button" class="delBtn btn-danger form-control">삭제</button>
+						</td>
+						
 					</tr>
+				</c:forEach>
 				</tbody>
 			</table>
 		</section>
 	</div>
+	
+<script>
+	$(document).ready(function() {
+		$('.delBtn').on('click', function() {
+			let bookingId = $(this).data('booking-id');
+			/* alert(bookingId); */
+			
+			// ajax 삭제할 id db
+			$.ajax({
+				// request
+				type:"DELETE"
+				, url: "/lesson06/delete_booking"
+				, data:{"id":bookingId}
+			
+				// response
+				, success:function(data) {
+					if (data.result == 100) {
+						location.reload(true);
+					} else {
+						elert(data.errorMessage);
+					}
+				}	
+				, error:function(e) {
+					alert("삭제 실패했습니다.");
+				}
+			});
+		});
+	});
+</script>
 
 </body>
 </html>
