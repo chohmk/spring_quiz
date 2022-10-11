@@ -52,14 +52,26 @@
 					<tr>
 						<td>${booking.name}</td>
 						<td>
-							
+							<fmt:formatDate value="${booking.date}" pattern="yyyy년 M월 d일" />
 						</td>
 						<td>${booking.day}</td>
 						<td>${booking.headcount}</td>
 						<td>${booking.phoneNumber}</td>
-						<td>${booking.state}</td>
 						<td>
-							<button type="button" class="delBtn btn-danger form-control">삭제</button>
+							<c:choose>
+								<c:when test="${booking.state eq '확정'}">
+									<span class="text-success">${booking.state}</span>
+								</c:when>
+								<c:when test="${booking.state eq '대기중'}">
+									<span class="text-info">${booking.state}</span>
+								</c:when>
+								<c:when test="${booking.state eq '취소'}">
+									<span class="text-danger">${booking.state}</span>
+								</c:when>
+							</c:choose>
+						</td>
+						<td>
+							<button type="button" class="del-btn btn-danger form-control" data-booking-id="${booking.id}">삭제</button>
 						</td>
 						
 					</tr>
@@ -71,27 +83,29 @@
 	
 <script>
 	$(document).ready(function() {
-		$('.delBtn').on('click', function() {
+		$('.del-btn').on('click', function() {
 			let bookingId = $(this).data('booking-id');
-			/* alert(bookingId); */
+			// alert(bookingId);
 			
-			// ajax 삭제할 id db
 			$.ajax({
 				// request
 				type:"DELETE"
 				, url: "/lesson06/delete_booking"
-				, data:{"id":bookingId}
+				, data: {"id":bookingId}
 			
 				// response
-				, success:function(data) {
-					if (data.result == 100) {
+				, success: function(data) {
+					// {"result: "success", "code":100} => 100:성공
+					if (data.code == 100) {
+						alert("삭제되었습니다.");
 						location.reload(true);
 					} else {
-						elert(data.errorMessage);
+					// {"errorMessage: "실패 메세지", "code":500} => 500:실패
+						alert(data.errorMessage);
 					}
-				}	
+				}
 				, error:function(e) {
-					alert("삭제 실패했습니다.");
+					alert("삭제하는데 실패했습니다.");
 				}
 			});
 		});
